@@ -7,17 +7,18 @@ class StableDiffusionLoader:
         self.prompt = prompt
         self.pretrain_pipe = pretrain_pipe
 
+
     def create_pipe(self):
-        pipe = StableDiffusionPipeline.from_pretrained(self.pretrain_pipe, 
+        self.pipe = StableDiffusionPipeline.from_pretrained(self.pretrain_pipe, 
             revision="fp16", torch_dtype=torch.float16, 
             use_auth_token=False)
 
         pipe = pipe.to('cuda')
         return pipe
 
-    def generate_image_from_prompt(self, prompt, pipe):
+    def generate_image_from_prompt(self):
         with autocast('cuda'):
-            image = pipe(prompt)[0][0]
+            image = self.pipe(self.prompt)[0][0]
         image.save(f'prompt.jpg')
         return image    
 
