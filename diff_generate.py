@@ -69,7 +69,12 @@ if __name__ == '__main__':
     st.title('Image generator using Stable Diffusion')
     st.subheader('An app to generate images based on text prompts with a Stable Diffusion model')
     prompt = st.text_input('Input the prompt desired')
+    
+    
     if len(prompt) > 0:
+        st.markdown(f"""
+        This will show an image using **stable diffusion** of the desired {prompt} entered:
+        """)
         print(prompt)
         # Uses the model and passes through the saved prompt
         sd = StableDiffusionLoader(prompt)
@@ -77,7 +82,7 @@ if __name__ == '__main__':
         # Open and display the image on the site
         image = Image.open(SAVE_LOCATION)
         st.image(image)
-        st.write(f'Image saved to {SAVE_LOCATION}')
+        #st.write(f'Image {prompt} saved to {SAVE_LOCATION}')
 
     
 
