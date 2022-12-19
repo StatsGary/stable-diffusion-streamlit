@@ -83,11 +83,3 @@ if __name__ == '__main__':
         image = Image.open(SAVE_LOCATION)
         st.image(image)
         #st.write(f'Image {prompt} saved to {SAVE_LOCATION}')
-
-    
-
-
-
-
-
-    #image = Image.open('')
