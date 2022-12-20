@@ -79,7 +79,7 @@ if __name__ == '__main__':
    
     SAVE_LOCATION = 'prompt.jpg'
     # Create the page title 
-    st.set_page_config(page_title='Diffusion Model generator', page_icon='figs/favicon.ico')
+    st.set_page_config(page_title='Diffusion Model generator', page_icon='favicon.ico')
     # Create page layout
     with open('style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     # Create a sidebar with text examples
     with st.sidebar:
         # Selectbox
-        st.image('figs/hf.png')
+        st.image('hf.png')
         add_selectbox = st.sidebar.selectbox(
         "Prompt examples",
         (

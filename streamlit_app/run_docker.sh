@@ -1,1 +1,2 @@
-sudo docker run -it -d sdstreamlit:latest
+#sudo docker run -p 8083:8083 sdstreamlit
+sudo docker run sdstreamlit

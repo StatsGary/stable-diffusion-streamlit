@@ -10,10 +10,11 @@ RUN pip install -r requirements.txt
 
 # Copy the relevant files over to the docker image
 RUN echo 'Copying local code over to docker container'
-COPY figs figs
 COPY streamlit_app.py streamlit_app.py
 COPY style.css style.css
+COPY favicon.ico favicon.ico
+COPY hf.png hf.png
 # Set the working directory to the current directory
-WORKDIR .
 # Run the app
-ENTRYPOINT ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8083", "--server.address=0.0.0.0"]
+WORKDIR .
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8083", "--server.address=0.0.0.0"]
