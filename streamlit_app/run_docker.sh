@@ -1,1 +1,1 @@
-sudo docker run -it -d sdstreamlit
+sudo docker run -it -d sdstreamlit:latest
