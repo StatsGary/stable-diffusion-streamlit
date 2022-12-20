@@ -8,13 +8,11 @@ RUN echo 'Upgrading pip and installing custom requirements'
 RUN pip install -U pip
 RUN pip install -r requirements.txt
 
+WORKDIR /src
+
 # Copy the relevant files over to the docker image
 RUN echo 'Copying local code over to docker container'
-COPY streamlit_app.py streamlit_app.py
-COPY style.css style.css
-COPY favicon.ico favicon.ico
-COPY hf.png hf.png
+COPY . /src
 # Set the working directory to the current directory
 # Run the app
-WORKDIR .
 ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8083", "--server.address=0.0.0.0"]
