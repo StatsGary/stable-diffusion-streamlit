@@ -65,11 +65,32 @@ class StableDiffusionLoader:
 
 if __name__ == '__main__':
     SAVE_LOCATION = 'prompt.jpg'
+    # Create the page title 
+    st.set_page_config(page_title='Diffusion Model generator', page_icon='figs/favicon.ico')
     # Create page layout
     st.title('Image generator using Stable Diffusion')
     st.caption('An app to generate images based on text prompts with a __Stable Diffusion__ :blue[colors] model :sunglasses:')
-    prompt = st.text_input('Input the prompt desired')
+    # Create a sidebar with text examples
+    with st.sidebar:
+        # Selectbox
+        add_selectbox = st.sidebar.selectbox(
+        "Prompt examples",
+        (
+            "None",
+            "Van Gogh painting with squirrels eating nuts", 
+            "Homer Simpson on a computer wearing a space suit",
+            "Mona Lisa with headphones on",
+            ""
+        ), index=0)
+        st.markdown('Use the above drop down box to generate _prompt_ examples')
+        # st.markdown('The tutorial for this application can be found _here_:')
+        # st.video('https://www.youtube.com/watch?v=9zcUlgLySZo')
     
+    # Create text prompt
+    prompt = st.text_input('Input the prompt desired')
+    if add_selectbox != 'None' or prompt is None:
+        prompt = add_selectbox
+
     # Handle if the text box does not have any content in
     if len(prompt) > 0:
         st.markdown(f"""
@@ -85,7 +106,5 @@ if __name__ == '__main__':
         # Open and display the image on the site
         image = Image.open(SAVE_LOCATION)
         st.image(image)
-        #st.write(f'Image {prompt} saved to {SAVE_LOCATION}')
-        st.markdown('The tutorial for this application can be found _here_:')
-        st.video('https://www.youtube.com/watch?v=9zcUlgLySZo')
+        
         
