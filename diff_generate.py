@@ -67,19 +67,25 @@ if __name__ == '__main__':
     SAVE_LOCATION = 'prompt.jpg'
     # Create page layout
     st.title('Image generator using Stable Diffusion')
-    st.subheader('An app to generate images based on text prompts with a Stable Diffusion model')
+    st.caption('An app to generate images based on text prompts with a __Stable Diffusion__ :blue[colors] model :sunglasses:')
     prompt = st.text_input('Input the prompt desired')
     
-    
+    # Handle if the text box does not have any content in
     if len(prompt) > 0:
         st.markdown(f"""
         This will show an image using **stable diffusion** of the desired {prompt} entered:
         """)
         print(prompt)
-        # Uses the model and passes through the saved prompt
-        sd = StableDiffusionLoader(prompt)
-        sd.generate_image_from_prompt(save_location=SAVE_LOCATION)
+        # Create a spinner to show the image is being generated
+        with st.spinner('Generating image based on prompt'):
+            sd = StableDiffusionLoader(prompt)
+            sd.generate_image_from_prompt(save_location=SAVE_LOCATION)
+            st.success('Generated stable diffusion model')
+
         # Open and display the image on the site
         image = Image.open(SAVE_LOCATION)
         st.image(image)
         #st.write(f'Image {prompt} saved to {SAVE_LOCATION}')
+        st.markdown('The tutorial for this application can be found _here_:')
+        st.video('https://www.youtube.com/watch?v=9zcUlgLySZo')
+        
