@@ -37,6 +37,9 @@ class StableDiffusionLoader:
         self.pretrain_pipe = pretrain_pipe
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
+        if self.device == 'cpu':
+            raise MemoryError('GPU need for inference')
+
         assert isinstance(self.prompt, str), 'Please enter a string into the prompt field'
         assert isinstance(self.pretrain_pipe, str), 'Please use value such as `CompVis/stable-diffusion-v1-4` for pretrained pipeline'
 
@@ -58,7 +61,7 @@ class StableDiffusionLoader:
 
         pipe = StableDiffusionPipeline.from_pretrained(
             self.pretrain_pipe, 
-            #revision="fp16", torch_dtype=torch.float16, 
+            revision="fp16", torch_dtype=torch.float16, 
             use_auth_token=use_token
             )
         pipe = pipe.to(self.device)
@@ -79,7 +82,7 @@ if __name__ == '__main__':
    
     SAVE_LOCATION = 'prompt.jpg'
     # Create the page title 
-    st.set_page_config(page_title='Diffusion Model generator', page_icon='favicon.ico')
+    st.set_page_config(page_title='Diffusion Model generator', page_icon='fig/favicon.ico')
     # Create page layout
     with open('style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -88,7 +91,7 @@ if __name__ == '__main__':
     # Create a sidebar with text examples
     with st.sidebar:
         # Selectbox
-        st.image('hf.png')
+        st.image('fig/hf.png')
         add_selectbox = st.sidebar.selectbox(
         "Prompt examples",
         (
