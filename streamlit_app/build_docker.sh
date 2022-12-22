@@ -1,1 +1,1 @@
-sudo docker build --tag sdstreamlitgpu .
+sudo docker build --tag gpu-test .
