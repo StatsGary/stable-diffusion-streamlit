@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.6.0-base-ubuntu20.04
+FROM nvidia/cuda:11.4.0-base-ubuntu20.04
 RUN echo 'Printing nvidia-smi below:'
 CMD nvidia-smi
 RUN echo 'Exposing port 8090 for using the streamlit app'
@@ -10,8 +10,9 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
 RUN apt-get install unzip
 RUN apt-get -y install python3.8
 RUN apt-get -y install python3-pip
+RUN pip install -U pip
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 WORKDIR /src
 
 # Copy the relevant files over to the docker image

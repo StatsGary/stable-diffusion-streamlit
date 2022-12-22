@@ -1,1 +1,1 @@
-sudo docker build --tag sdstreamlit .
+sudo docker build --tag sdstreamlitgpu .
