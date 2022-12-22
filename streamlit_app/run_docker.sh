@@ -1,3 +1,3 @@
 #!/bin/sh
-sudo docker run -p 8086:8086 --gpus all sdstreamlit
+#sudo docker run -p 8083:8083 sdstreamlit
 #sudo docker run sdstreamlit
