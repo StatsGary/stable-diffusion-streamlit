@@ -21,4 +21,3 @@ RUN echo 'Copying local code over to docker container'
 COPY . /src
 ENTRYPOINT [ "streamlit", "run" ]
 CMD [ "streamlit_app.py", "--server.headless", "true", "--server.fileWatcherType", "none", "--browser.gatherUsageStats", "false", "--server.port=8090", "--server.address=0.0.0.0"]
-#ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8090", "--server.address=0.0.0.0"]
