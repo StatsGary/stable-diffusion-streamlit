@@ -9,6 +9,7 @@ pip install -r requirements.txt
 3. To run the streamlit application use:
 
 ```
+cd streamlit_app
 python streamlit_app.py
 ```
 4. This will run the application and when successful say to run this application use:
