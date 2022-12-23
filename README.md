@@ -4,11 +4,18 @@ This application was inspired by the Stable Diffusion model which is a combinati
 
 ![](fig/stable_diffusion_model.png)
 
-I will take you through how to fine tune one of these models in a later tutorial. 
+I will take you through how to fine tune one of these models in a later tutorial.
+
+## Running the application
+
+To run the application, follow these steps to get up and running quickly. 
+
+**Please note this was tested with `python=3.8` and I cannot guarntee it will work with other versions of Python.** 
 
 1. To run the app you will need to create a virtual environment of your choosing, be that pyenv, anaconda, virtualenv and then use the requirements.txt file with: 
 
 ```
+cd streamlit_app
 pip install -r requirements.txt
 ```
 2. This will install the relevant setup files to enable you to reproduce the application with the right packages. Please note you will need to use a computer with a **gpu** present, otherwise the script will throw a MemoryError.
