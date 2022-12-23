@@ -1,5 +1,11 @@
 # Stable Diffusion Streamlit app
 
+This application was inspired by the Stable Diffusion model which is a combination of a UNET (denoising function), Variational Autoencoder, CLIP text-to-image mapping and a gaussian noise function. The full flow is captured hereunder: 
+
+![](fig/stable_diffusion_model.png)
+
+I will take you through how to fine tune one of these models in a later tutorial. 
+
 1. To run the app you will need to create a virtual environment of your choosing, be that pyenv, anaconda, virtualenv and then use the requirements.txt file with: 
 
 ```
