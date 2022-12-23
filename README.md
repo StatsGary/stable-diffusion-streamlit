@@ -36,5 +36,3 @@ python streamlit_app.py
 streamlit run [user folder]/streamlit_app.py
 ```
 5. The application will run and then you will be given a URL to run the application in your browser. Paste the URL into the browser and away you go. 
-
-
